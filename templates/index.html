@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat Page</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/main.css')}}">
+
+</head>
+<body>
+
+    <div class="div_wrapper">
+
+        <div class="title_wrapper">
+            <div class="title">
+                <h1>Chat Page</h1>
+            </div>
+        </div>
+
+        <div class="msg_wrapper" id="msg_wrapper"></div>
+
+        <div class="send_wrapper">
+
+            <form type="GET" id="msg_form">
+                <input type="text" name="msg" id="msg" placeholder="Enter Your Message">
+                <input type="submit" id="submit" value="Submit">
+            </form>
+
+        </div>
+
+    </div>
+
+<!--    SocketIO Javascript-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        const socket = io('http://192.168.0.160:5000/');
+
+        socket.on('stc_msg', (data) => {
+            const newNode = document.createElement('div')
+            newNode.setAttribute('class', 'messages')
+            newNode.innerHTML = `<p> ${data.data} </p>`
+
+            document.getElementById('msg_wrapper').appendChild(newNode)
+            console.log(data)
+        })
+    </script>
+    <script>
+        document.getElementById('msg_form').addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let msg_data = document.getElementById('msg').value
+
+            socket.emit('cts_msg', {msg: msg_data})
+        })
+    </script>
+</body>
+</html>

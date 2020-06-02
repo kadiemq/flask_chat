@@ -1,96 +1,27 @@
+/*General CSS*/
 * {
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    /*color: cyan;*/
-    font-family: Arial;
-}
-
 body {
-    position: relative;
     height: 100vh;
     width: 100vw;
-}
-.div_wrapper {
-    position: absolute;
 
-    height: 90%;
-    width: 90%;
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    background: gray;
-    border-radius: 5px;
-
-    text-align: center;
-}
-
-.title_wrapper {
-    /*padding: 16px;*/
-    height: 10%;
     position: relative;
-
-    -webkit-box-shadow: 0 10px 6px -3px #777;
-    -moz-box-shadow: 0 10px 6px -3px #777;
-    box-shadow: 0 10px 6px -3px #777;
 }
 
-.title {
-    position: absolute;
+/*Main Container CSS*/
+.main_container {
+    height: 95%;
+    width: 95%;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.msg_wrapper {
-    height: 80%;
-    overflow-y: visible;
-    overflow-x: hidden;
-}
-
-.messages {
-    text-align: left;
-    padding: 8px;
-    background: darkgray;
-    margin-top: 8px;
-}
-
-.send_wrapper {
-    text-align: center;
-    height: 40px;
-    /*z-index: 500;*/
-    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.8);
-    width: 75%;
+    /*Horizontal Align*/
     margin: auto;
-    border-radius: 5px;
-}
 
-#msg_form {
-    height: 100%;
-
-    position: relative;
-}
-
-#msg{
-    height: 100%;
-    width: 60%;
-
-    float: left;
-}
-
-#submit {
-    width: 39%;
-    height: 100%;
-
+    /*Vertical Align*/
     position: absolute;
-
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    float: right;
 }
-

@@ -1,3 +1,6 @@
+/*Fonts Tenali Ramakrishna*/
+@import url('https://fonts.googleapis.com/css2?family=Tenali+Ramakrishna&display=swap');
+
 /*General CSS*/
 * {
     margin: 0;
@@ -11,10 +14,26 @@ body {
     position: relative;
 }
 
-/*Main Container CSS*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+}
+
+/*********Main Container CSS************/
 .main_container {
-    height: 95%;
-    width: 95%;
+    /*General Attr*/
+    height: 100%;
+    width: 100%;
+    /*background: gray;*/
+    /*border-radius: 5px;*/
 
     /*Horizontal Align*/
     margin: auto;
@@ -25,3 +44,182 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/*********Title Section********/
+.title_wrapper {
+    position: relative;
+
+    height: 5%;
+    text-align: center;
+
+    background-color: gray;
+    /*border-radius: 5px 5px 0 0;*/
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title > h1 {
+    color: black;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 40px;
+}
+
+
+/********Messages Section********/
+.msg_wrapper {
+    height: 85%;
+    background-color: darkgray;
+
+    position: relative;
+}
+
+.msg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.clear { clear: both; }
+.row {
+    width: 100%;
+    height: fit-content;
+}
+
+.row > .other_msg {
+    background: dimgray;
+    width: max-content;
+    margin-left: 8px;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    float: left;
+}
+
+.row > .my_msg {
+    background: dimgray;
+    width: max-content;
+    margin-right: 8px;
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    float: right;
+}
+
+.msg > .row > .other_msg > p:nth-child(1) {
+    color: black;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 24px;
+    line-height: 20px;
+    /*background: #fdac90;*/
+    /*width: max-content;*/
+    /*padding: 8px;*/
+    /*border-radius: 40px;*/
+}
+
+.msg > .row > .other_msg > p:nth-child(2) {
+    color: white;
+    /*padding-top: 8px;*/
+    max-width: 300px;
+}
+
+.msg > .row > .my_msg > p:nth-child(1) {
+    color: white;
+    /*padding-top: 8px;*/
+    max-width: 300px;
+}
+
+.msg > .row > .other_msg > p:nth-child(3) {
+    float: right;
+    padding-top: 8px;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 20px;
+    line-height: 15px;
+}
+
+.msg > .row > .my_msg > p:nth-child(2) {
+    float: right;
+    padding-top: 8px;
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-size: 20px;
+    line-height: 15px;
+}
+
+
+
+
+/*******Send Message Wrapper********/
+.send_wrapper {
+    height: 10%;
+    width: 100%;
+    margin: -1px auto 0 auto;
+    /*margin-top: -1px;*/
+
+    /*background-color: gray;*/
+    /*border-radius: 5px;*/
+
+    background-color: darkgray;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+}
+
+#msg_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 50px;
+    margin: auto;
+    background-color: gray;
+    border-radius: 40px;
+    width: 90%;
+
+    -webkit-box-shadow: 0 0 14px -5px #000000;
+    -moz-box-shadow: 0 0 14px -5px #000000;
+    box-shadow: 0 0 14px -5px #000000;
+}
+
+#msg_form > #msg {
+    /*width: 70%;*/
+    /*height: 40px;*/
+    /*margin-top: -1px;*/
+    /*border-radius: 5px 0 0 5px;*/
+
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    line-height: 50px;
+    width: 200px;
+
+    margin-left: 8px;
+}
+
+.search_btn {
+    color: black;
+    float: right;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:36px;
+    text-decoration: none;
+}
+
+/*#msg_form > #submit {*/
+/*    width: 28%;*/
+/*    height: 30px;*/
+/*    margin-top: -5px;*/
+/*    margin-left: -4px;*/
+/*}*/

@@ -9,6 +9,8 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -20,15 +22,22 @@
                 <h1>Chat Page</h1>
             </div>
         </div>
+        <hr>
 
-        <div class="msg_wrapper" id="msg_wrapper"></div>
+        <div class="msg_wrapper" id="msg_wrapper">
+            <div class="msg" id="msgs">
+            </div>
+        </div>
+
 
         <div class="send_wrapper">
-
-            <form type="GET" id="msg_form">
+            <div id="msg_form">
                 <input type="text" name="msg" id="msg" placeholder="Enter Your Message">
-                <input type="submit" id="submit" value="Submit">
-            </form>
+                <a href="#" class="search_btn" id="search_btn">
+                    <i class="fa fa-arrow-circle-right"></i>
+                </a>
+
+            </div>
 
         </div>
 
@@ -41,20 +50,32 @@
 
         socket.on('stc_msg', (data) => {
             const newNode = document.createElement('div')
-            newNode.setAttribute('class', 'messages')
-            newNode.innerHTML = `<p> ${data.data} </p>`
+            newNode.setAttribute('class', 'row')
+            newNode.innerHTML =
+                `
+                    <br class="clear"/>
+                    <div class="my_msg">
+                        <p>${data.data}</p>
+                        <p>5:27 pm</p>
+                        <br>
+                    </div>
+                `
 
-            document.getElementById('msg_wrapper').appendChild(newNode)
-            console.log(data)
+            document.getElementById('msgs').appendChild(newNode)
         })
     </script>
     <script>
-        document.getElementById('msg_form').addEventListener("submit", function (e) {
+        document.getElementById('search_btn').addEventListener("click", function (e) {
             e.preventDefault();
+            console.log('click')
 
-            let msg_data = document.getElementById('msg').value
+            let msg_input = document.getElementById('msg')
+            let data = msg_input.value
 
-            socket.emit('cts_msg', {msg: msg_data})
+            console.log(data)
+
+            socket.emit('cts_msg', {msg: data})
+            msg_input.value = ''
         })
     </script>
 </body>
